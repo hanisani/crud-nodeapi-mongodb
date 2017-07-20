@@ -38,7 +38,7 @@ module.exports = function(app) {
             });
         } else { // insert
             var newSurvey = Surveys({
-                sid: request.body.id,
+                sid: request.body.sid,
                 title: request.body.title
             });
             newSurvey.save(function(error) {
