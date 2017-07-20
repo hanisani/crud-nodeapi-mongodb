@@ -37,11 +37,10 @@ module.exports = function(app) {
                 response.send('Successfully updated');
             });
         } else { // insert
-            var newSurvey = Surveys({
+            Surveys.create({
                 sid: request.body.sid,
                 title: request.body.title
-            });
-            newSurvey.save(function(error) {
+            }, function(error) {
                 if (error) throw error;
                 response.send('Successfully inserted');
             });
