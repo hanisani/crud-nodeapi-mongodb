@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
-var scheema = mongoose.Schema();
+var Schema = mongoose.Schema;
 
 var surveySchema = new Schema({
-    sid: number,
-    title: string
+    sid: Number,
+    title: String
 });
 
 var Surveys = mongoose.model('Survey', surveySchema);
