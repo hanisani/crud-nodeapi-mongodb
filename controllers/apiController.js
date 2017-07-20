@@ -7,6 +7,13 @@ module.exports = function(app) {
         extended: true
     }));
 
+    app.get('/api/survey', function(request, response) {
+        Surveys.find(function(error, results) {
+            if (error) throw error;
+            response.send(results);
+        });
+    });
+
     app.get('/api/survey/:sid', function(request, response) {
         Surveys.find({ sid: request.params.sid }, function(error, results) {
             if (error) throw error;
@@ -14,12 +21,12 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/api/survey/:id', function(request, response) {
-        Surveys.findById({ _id: request.params.id }, function(error, results) {
-            if (error) throw error;
-            response.send(results);
-        });
-    });
+    // app.get('/api/survey/:id', function(request, response) {
+    //     Surveys.findById({ _id: request.params.id }, function(error, results) {
+    //         if (error) throw error;
+    //         response.send(results);
+    //     });
+    // });
 
     app.post('/api/survey', function(request, response) {
         if (request.body.id) { // update
