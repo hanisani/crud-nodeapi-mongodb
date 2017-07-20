@@ -2,7 +2,7 @@ var Surveys = require('../models/surveyModel');
 
 module.exports = function(app) {
     app.get('/api/setupSurvey', function(request, response) {
-        var starterSurveys = [{
+        var sampleSurveys = [{
                 "sid": 1,
                 "title": "SIGNIDYNE"
             },
@@ -32,7 +32,7 @@ module.exports = function(app) {
             }
         ];
 
-        Surveys.create(starterSurveys, function(error, results) {
+        Surveys.create(sampleSurveys, function(error, results) {
             response.send(results);
         });
     });
